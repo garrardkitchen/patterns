@@ -1,6 +1,10 @@
 ## Configuration Kata
 
-Create a project based on the webapp template enter the following:
+This is a short & simple kata for the Options pattern.
+
+Here I'm using the Options pattern to make available configuration from appsetting using Dependency Injection.
+
+Create a project based on the `webapp` template enter the following:
 
 ```
 dotnet new webapp -o src/kata-config
@@ -8,7 +12,7 @@ dotnet new webapp -o src/kata-config
 
 Create a folder named `Configuration`
 
-Create class named `MyConfig` in Configuration folder:
+Create class named `MyConfig` in `Configuration` folder:
 
 ```csharp
 namespace kata_config
@@ -44,7 +48,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Navigate to Index.cshtml.cs and add IOptions<MyConfig> config to the constructor:
 
-```
+```csharp
 public readonly IOptions<MyConfig> Config;
 
 public IndexModel(ILogger<IndexModel> logger, IOptions<MyConfig> config)
@@ -53,7 +57,7 @@ public IndexModel(ILogger<IndexModel> logger, IOptions<MyConfig> config)
     Config = config;
 }
 ```
-__Please not the public accessibility to the `Config` field.__
+_Please not the public accessibility to the `Config` field._
 
 Finally, to see the MyConfig.Name string value in a page, replace the Index.cshtml contents with this:
 
